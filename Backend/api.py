@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from PIL import Image
+from classify import classifyImage
 import os
 
 app = Flask(__name__)
@@ -27,10 +28,9 @@ def upload_image():
         filepath = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(filepath)
 
-        # Open the image file and get size
-        image = Image.open(file.stream)
-        width, height = image.size
-        return jsonify({"width": width, "height": height})
+        # Open the image file and evaluate
+        out = classifyImage(file.stream)
+        return jsonify({"probDistribution": out})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
