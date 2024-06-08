@@ -160,7 +160,7 @@ class ResNet(nn.Module):
 
 
 # Hyper Parameters  - - - - - - - - - - - - - - - - - 
-dataloaders, dataset = data_loader(data_dir='images', batch_size=16)
+dataloaders, dataset = data_loader(data_dir='./images', batch_size=16)
 
 num_classes = 5
 num_epochs = 20

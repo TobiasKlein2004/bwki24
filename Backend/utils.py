@@ -29,3 +29,7 @@ def calc_Normalize(images_paths: list):
 
 # calc_Normalize(["C:/Users/klein/Desktop/BWKI/Final/images/1.png", 
 #                 "C:/Users/klein/Desktop/BWKI/Final/images/2.png"])
+
+
+def changeBackground():
+    pass

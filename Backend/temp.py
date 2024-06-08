@@ -8,11 +8,11 @@ device_name = torch_directml.device_name(0)
 device = torch.device(torch_directml.device(0))
 
 # Load the model
-model = torch.load('model1.pt')
+model = torch.load('models/model1.pt')
 model.to(device)
 
 # Load and preprocess the image
-image_path = '98_100.jpg'
+image_path = '87_100.jpg'
 image = Image.open(image_path)
 preprocess = transforms.Compose([
     transforms.Resize(256),

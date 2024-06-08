@@ -12,6 +12,8 @@ print(f'Running on {device_name}')
 model = torch.load('models/model1.pt')
 model.to(device)
 
+labels = ['Apple', 'Avocado', 'Banana', 'Cherry', 'Kiwi']
+
 def classifyImage(imagePath) -> list:
     image = Image.open(imagePath)
     preprocess = transforms.Compose([
@@ -26,5 +28,6 @@ def classifyImage(imagePath) -> list:
     with torch.no_grad():
         out = model(image_tensor)
 
-    # print(out.tolist()[0])
-    return out.tolist()[0]
+    out = out.tolist()[0]
+    print(out)
+    return labels[out.index(max(out))]
